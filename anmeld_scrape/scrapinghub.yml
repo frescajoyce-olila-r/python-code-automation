@@ -1,0 +1,3 @@
+projects:
+  default: {id: 486986, stack: 'scrapy:1.3-py3'}
+requirements: {file: requirements.txt}
