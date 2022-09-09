@@ -1,6 +1,0 @@
-pyquery==1.4.0
-Scrapy~=2.5.0
-shub==2.13.0
-requests~=2.27.0
-self~=2020.12.3
-setuptools~=56.0.0

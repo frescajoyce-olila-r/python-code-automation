@@ -1,3 +1,0 @@
-[scrapy]
-settings = danskekloakmestre_dk_scrapy.settings
-
