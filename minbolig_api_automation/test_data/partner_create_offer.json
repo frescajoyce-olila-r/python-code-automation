@@ -1,0 +1,28 @@
+{
+  "offers": [
+    {
+      "title": "Offer 1",
+      "description": "Test Through Automation",
+      "subtotalPrice": "10",
+      "vat": "10",
+      "totalPrice": "60",
+      "offerId": "1",
+      "startDate": "2022-10-30",
+      "endDate": "2022-12-31",
+      "expiryDate": "2022-12-30",
+      "fileName": "filename.pdf"
+    },
+    {
+      "title": "Offer 2",
+      "description": "Test Through Automation",
+      "subtotalPrice": "10",
+      "vat": "10",
+      "totalPrice": "60",
+      "offerId": "1",
+      "startDate": "2022-10-30",
+      "endDate": "2022-12-31",
+      "expiryDate": "2022-12-30",
+      "fileName": "filename.pdf"
+    }
+  ]
+}

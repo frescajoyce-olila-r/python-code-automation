@@ -1,0 +1,26 @@
+{
+    "paymentStages": [
+        {
+            "price": 1000,
+            "title": "Awesome payment stage",
+            "description": "Awesome description",
+            "notes": "Awesome notes for this stage",
+            "deadline": "2022-12-12"
+        },
+        {
+            "price": 1000,
+            "title": "Awesome payment stage",
+            "description": "Awesome description",
+            "notes": "Awesome notes for this stage",
+            "deadline": "2022-12-12"
+        },
+        {
+            "price": 1000,
+            "title": "Awesome payment stage",
+            "description": "Awesome description",
+            "notes": "Awesome notes for this stage",
+            "deadline": "2022-12-12"
+        }
+
+    ]
+}

@@ -1,0 +1,15 @@
+{
+      "templateId": "18",
+      "contractTemplateId": "33492",
+      "companyId": "40035",
+      "steps": "123",
+      "comments": "this is a comment",
+      "title": "Test Kontrakt",
+      "name": "Fresh",
+      "lastname": "Smith",
+      "address": "Test address",
+      "zipcode": "1234",
+      "email": "fol@crafttec.ai",
+      "mobile": "92453281",
+      "city": "Kobenhanven"
+}

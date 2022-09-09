@@ -1,0 +1,38 @@
+[
+ {
+  "title": "Meeting Calendar",
+  "description": "Automation through API",
+  "date": "2022-10-28",
+  "startTime": "12:12:00",
+  "endTime": "13:12:00",
+  "type": "meeting",
+  "partnerId": "69"
+ },
+ {
+  "title": "Birthday Calendar",
+  "description": "Automation through API",
+  "date": "2022-10-28",
+  "startTime": "12:12:00",
+  "endTime": "13:12:00",
+  "type": "birthday",
+  "partnerId": "69"
+ },
+ {
+  "title": "Important Meeting",
+  "description": "Automation through API",
+  "date": "2022-10-28",
+  "startTime": "12:12:00",
+  "endTime": "13:12:00",
+  "type": "important",
+  "partnerId": "69"
+ },
+ {
+  "title": "Mics Meeting",
+  "description": "Automation through API",
+  "date": "2022-10-28",
+  "startTime": "12:12:00",
+  "endTime": "13:12:00",
+  "type": "misc",
+  "partnerId": "69"
+ }
+]
