@@ -1,0 +1,4 @@
+pyquery==1.4.3
+Scrapy==2.5.1
+shub==2.13.0
+validators==0.20.0
