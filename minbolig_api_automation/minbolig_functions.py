@@ -108,13 +108,14 @@ def login():
         print(f'Log in Successful')
         print(f'Username: {email}')
         print(f'Password: {password}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
         return response
 
     except requests.exceptions.RequestException as e:
         print('Error: {}'.format(e))
         sys.exit(1)
+
 
 def send_messages(token):
     path='/minbolig/message'
@@ -147,7 +148,7 @@ def send_messages(token):
         print(f'partnerId: {partnerId}')
         print(f'Title: {title}')
         print(f'Message: {message}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
         return response
 
@@ -200,13 +201,14 @@ def create_meeting(token):
             print(f'End Time: {endTime}')
             print(f'Type: {type}')
             print(f'Partner Id : {partnerId}')
-            print(json.dumps(response.json(), indent=4, sort_keys=True))
+            # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
 
     except requests.exceptions.RequestException as e:
         print('Error: {}'.format(e))
         sys.exit(1)
 
+# Create Folder
 def create_folder(token):
     path = "/minbolig/folder"
     try:
@@ -231,7 +233,7 @@ def create_folder(token):
         print(f'Status Code: {response.status_code}')
         print(f'Folder Name: {folderName}')
         print(f'Parent ID: {parentId}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
         return response
 
@@ -239,7 +241,7 @@ def create_folder(token):
         print('Error: {}'.format(e))
         sys.exit(1)
 
-
+# Rename folder
 def rename_folder(token,folder_id):
     path = "/minbolig/folder"
 
@@ -261,7 +263,7 @@ def rename_folder(token,folder_id):
         print(f'Status Code: {response.status_code}')
         print(f'Folder ID: {folder_id}')
         print(f'Folder Name: {newName}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
         return response
 
@@ -269,7 +271,7 @@ def rename_folder(token,folder_id):
         print('Error: {}'.format(e))
         sys.exit(1)
 
-
+# Create Minbolig Project
 def create_project(token):
     path = "/minbolig/projects"
 
@@ -315,13 +317,52 @@ def create_project(token):
         print(f'Subcategory: {subcategory}')
         print(f'Task Type: {taskType}')
         print(f'Tags: {tags}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
         return response
 
     except requests.exceptions.RequestException as e:
         print('Error: {}'.format(e))
         sys.exit(1)
+
+
+# Inspiration upload file
+def inspiration(token, project_id):
+    path = "/minbolig/project"
+
+    try:
+        headers = {
+            'accept': '*/*',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer' + token
+        }
+        for dic in minbolig_test_data.inspiration:
+            title = dic['title']
+            description = dic['description']
+            url = dic['url']
+
+            response = requests.post(f'{config.host + path}/{project_id}/inspiration',
+                                     params={
+                                         'title': title,
+                                         'description': description,
+                                         'url': url,
+
+                                     },
+                                     headers=headers, verify=False)
+            print(f'--------------------------------------------------')
+            print(f'INSPIRATION')
+            print(f'--------------------------------------------------')
+            print(f'Status Code: {response.status_code}')
+            print(f'Successfully Added Inspiration')
+            print(f'title: {title}')
+            print(f'description: {description}')
+            # print(json.dumps(response.json(), indent=4, sort_keys=True))
+
+    except requests.exceptions.RequestException as e:
+        print('Error: {}'.format(e))
+        sys.exit(1)
+
+
 
 def create_initial_budget(token, project_id):
     path="/minbolig/project/"
@@ -347,7 +388,7 @@ def create_initial_budget(token, project_id):
         print(f'Successfully created Initial Budget')
         print(f'Project ID: {project_id}')
         print(f'Amount: {amount}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
         return response
 
@@ -386,7 +427,7 @@ def add_budget(token,project_id):
         print(f'Category: {category}')
         print(f'Amount: {amount}')
         print(f'Locked: {isLocked}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
         return response
 
@@ -433,7 +474,7 @@ def prisberegnere_calculator(token):
         print(f'kommunekode: {kommunekode}')
         print(f'vejkode: {vejkode}')
         print(f'vejnavn: {vejnavn}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
         return response
 
@@ -480,7 +521,7 @@ def Favorite(token):
             print(f'objectId: {objectId}')
             print(f'picType: {picType}')
             print(json.dumps(response.json(), indent=4, sort_keys=True))
-# print(json.dumps(response.json(), indent=4, sort_keys=True))
+            # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
     except requests.exceptions.RequestException as e:
         print('Error: {}'.format(e))
@@ -515,7 +556,7 @@ def upload_billeder(token, folder_id1):
         print(f'parentId: {folder_id1}')
         print(f'File 1: {file1}')
         print(f'File 0: {file0}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
     except requests.exceptions.RequestException as e:
         print('Error: {}'.format(e))
@@ -528,7 +569,7 @@ def todo_upload_billeder(token, project_id):
     try:
         headers = {
             'accept': '*/*',
-            'Content-Type': 'multipart/form-data',
+            'Content-Type': 'application/json',
             'Authorization': 'Bearer' + token
         }
         code = minbolig_test_data.todo_upload_billeder['code']
@@ -548,7 +589,7 @@ def todo_upload_billeder(token, project_id):
         print(f'Successfully Uploaded File')
         print(f'Status Code: {response.status_code}')
         print(f'Status Done: {done}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
     except requests.exceptions.RequestException as e:
         print('Error: {}'.format(e))
@@ -580,7 +621,7 @@ def minetilbud_contractType(token, project_id):
         print(f'Status Code: {response.status_code}')
         print(f'isFinal: {isFinal}')
         print(f'contractType: {contractType}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
         return response
 
@@ -623,7 +664,7 @@ def henttilbud_anbefalet(token,project_id):
         print(f'contractType: {contractType}')
         print(f'subcategory: {subcategory}')
         print(f'taskType: {taskType}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
         return response
 
@@ -640,7 +681,7 @@ def send_offer_invitation_to_partner(token, project_id):
     try:
         headers = {
             'accept': '*/*',
-            'Content-Type': 'multipart/form-data',
+            'Content-Type': 'application/json',
             'Authorization': 'Bearer' + token
         }
         company_name = minbolig_test_data.offer_send_invitation['companyName']
@@ -675,7 +716,7 @@ def send_offer_invitation_to_partner(token, project_id):
         print(f'Title: {title}')
         print(f'Budget: {budget}')
         print(f'Selected Images: {selectedImages}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
         return response
 
@@ -701,7 +742,7 @@ def get_offer_id_minbolig(token, project_id):
         print(f'GET OFFER ID IN MINBOLIG')
         print(f'--------------------------------------------------')
         print(f'Status Code: {response.status_code}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
         return response
 
@@ -717,7 +758,7 @@ def accept_offer_minbolig(token, project_id, offer_id):
     try:
         headers = {
             'accept': '*/*',
-            'Content-Type': 'multipart/form-data',
+             'Content-Type': 'application/json',
             'Authorization': 'Bearer' + token
         }
 
@@ -729,7 +770,7 @@ def accept_offer_minbolig(token, project_id, offer_id):
         print(f'Status Code: {response.status_code}')
         print(f'Project Id:{project_id}')
         print(f'Offer Id: {offer_id}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
         return response
 
@@ -803,11 +844,187 @@ def create_contract_minbolig(token, project_id):
         print(f'Email: {email}')
         print(f'Mobile: {mobile}')
         print(f'City: {city}')
-        print(f'Payment Stages: {payment_stages}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(f'Payment Stages: {payment_stages}')
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
     except requests.exceptions.RequestException as e:
         print('Error: {}'.format(e))
         sys.exit(1)
 
+# Create Project Meeting
+def create_project_meeting(token, project_id):
+    path = "/minbolig/calendar/"
+
+    try:
+        headers = {
+            'accept': '*/*',
+             'Content-Type': 'application/json',
+            'Authorization': 'Bearer' + token
+        }
+        title = minbolig_test_data.project_meeting_test_case['title']
+        description = minbolig_test_data.project_meeting_test_case['description']
+        date = minbolig_test_data.project_meeting_test_case['date']
+        startTime = minbolig_test_data.project_meeting_test_case['startTime']
+        endTime = minbolig_test_data.project_meeting_test_case['endTime']
+        type = minbolig_test_data.project_meeting_test_case['type']
+        partnerId = minbolig_test_data.project_meeting_test_case['partnerId']
+
+
+
+        response = requests.post(f'{config.host + path}',
+                                 params={
+                                     "title": title,
+                                     "description": description,
+                                     "date": date,
+                                     "startTime": startTime,
+                                     "endTime": endTime,
+                                     "type": type,
+                                     "partnerId": partnerId,
+                                     "projectId": project_id
+
+                                 },
+                                headers=headers, verify=False)
+        print(f'--------------------------------------------------')
+        print(f'CREATE PROJECT MEETING')
+        print(f'--------------------------------------------------')
+        print(f'Status Code: {response.status_code}')
+        print(f'Title: {title}')
+        print(f'Description: {description}')
+        print(f'Date: {date}')
+        print(f'Start Time: {startTime}')
+        print(f'End Time: {endTime}')
+        print(f'Type: {type}')
+        print(f'Partner Id: {partnerId}')
+        print(f'Project Id: {project_id}')
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
+
+        return response
+
+    except requests.exceptions.RequestException as e:
+        print('Error: {}'.format(e))
+        sys.exit(1)
+
+
+# Get Timeline Id Minbolig
+def get_timeline_id(token, project_id):
+    path = "/minbolig/project"
+    try:
+        headers = {
+            'accept': '*/*',
+             'Content-Type': 'application/json',
+            'Authorization': 'Bearer' + token
+        }
+
+        response = requests.get(f'{config.host + path}/{project_id}/timeline/pending',
+                                    headers=headers, verify=False)
+        print(f'--------------------------------------------------')
+        print(f'GET TIMELINE ID ')
+        print(f'--------------------------------------------------')
+        print(f'Status Code: {response.status_code}')
+        print(f'Project Id: {project_id}')
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
+
+        return response
+
+    except requests.exceptions.RequestException as e:
+        print('Error: {}'.format(e))
+        sys.exit(1)
+
+# Create Timeline Task
+def create_timeline_task(token, timeline_id):
+    path = "/minbolig/task"
+    try:
+        headers = {
+            'accept': '*/*',
+             'Content-Type': 'application/json',
+            'Authorization': 'Bearer' + token
+        }
+        price = minbolig_test_data.create_timeline_task_test_data['price']
+        taskName = minbolig_test_data.create_timeline_task_test_data['taskName']
+        taskDescription = minbolig_test_data.create_timeline_task_test_data['taskDescription']
+        startDate = minbolig_test_data.create_timeline_task_test_data['startDate']
+        endDate = minbolig_test_data.create_timeline_task_test_data['endDate']
+        progress = minbolig_test_data.create_timeline_task_test_data['progress']
+
+        response = requests.post(f'{config.host + path}',
+                                   params={
+                                        "price": price,
+                                        "taskName": taskName,
+                                        "taskDescription": taskDescription,
+                                        "startDate": startDate,
+                                        "endDate": endDate,
+                                        "progress": progress,
+                                        "timelineId" : timeline_id
+                                   },
+
+                                    headers=headers, verify=False)
+        print(f'--------------------------------------------------')
+        print(f'CREATE TIMELINE TASK')
+        print(f'--------------------------------------------------')
+        print(f'Status Code: {response.status_code}')
+        print(f'Price: {price}')
+        print(f'Task Name: {taskName}')
+        print(f'Task Description: {taskDescription}')
+        print(f'Start Date: {startDate}')
+        print(f'End Time: {endDate}')
+        print(f'Progress: {progress}')
+        print(f'Timeline Id: {timeline_id}')
+        print(json.dumps(response.json(), indent=4, sort_keys=True))
+
+        return response
+
+    except requests.exceptions.RequestException as e:
+        print('Error: {}'.format(e))
+        sys.exit(1)
+
+
+
+# Submit Timeline created task
+def submit_timeline_created(token, timeline_id):
+    path = "/minbolig/project/timeline"
+    try:
+        headers = {
+            'accept': '*/*',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer' + token
+        }
+
+        response = requests.post(f'{config.host + path}/{timeline_id}/submit',
+                                 headers=headers, verify=False)
+        print(f'--------------------------------------------------')
+        print(f'SUBMIT TIMELINE TASK IN MINBOLIG')
+        print(f'--------------------------------------------------')
+        print(f'Status Code: {response.status_code}')
+        print(json.dumps(response.json(), indent=4, sort_keys=True))
+
+        return response
+
+    except requests.exceptions.RequestException as e:
+        print('Error: {}'.format(e))
+        sys.exit(1)
+
+
+# Accept Contract Minbolig Side
+def accept_contract_minbolig(token, contract_id):
+    path = "/minbolig/contract"
+    try:
+        headers = {
+            'accept': '*/*',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer' + token
+        }
+
+        response = requests.post(f'{config.host + path}/{contract_id}/approve',
+                                 headers=headers, verify=False)
+        print(f'--------------------------------------------------')
+        print(f'ACCEPT CONTRACT MINBOLIG')
+        print(f'--------------------------------------------------')
+        print(f'Status Code: {response.status_code}')
+        print(json.dumps(response.json(), indent=4, sort_keys=True))
+
+        return response
+
+    except requests.exceptions.RequestException as e:
+        print('Error: {}'.format(e))
+        sys.exit(1)
 

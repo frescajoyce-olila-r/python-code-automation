@@ -14,17 +14,17 @@ if __name__ == '__main__':
     print('----- Running MINBOLIG API AUTOMATION script -----')
     print('--------------------------------------------------')
 
-    # Call to register
-    register_response = minbolig_functions.register()
-
-    # Call to retrieve unique id
-    unique_id_response = minbolig_functions.retrieve_unique_id(register_response.json()['data']['user']['ID'])
-
-    # Call to verify
-    minbolig_functions.verify(unique_id_response.json()['data'][0]['UNIQUE_ID'])
-
-    # Call to Login after Register
-    login_register = minbolig_functions.login_through_register()
+    # # Call to register
+    # register_response = minbolig_functions.register()
+    #
+    # # Call to retrieve unique id
+    # unique_id_response = minbolig_functions.retrieve_unique_id(register_response.json()['data']['user']['ID'])
+    #
+    # # Call to verify
+    # minbolig_functions.verify(unique_id_response.json()['data'][0]['UNIQUE_ID'])
+    #
+    # # Call to Login after Register
+    # login_register = minbolig_functions.login_through_register()
 
     # Call to Log in
     login_response = minbolig_functions.login()
@@ -54,19 +54,16 @@ if __name__ == '__main__':
     minbolig_functions.add_budget(token, project_id)
 
 
-    # Send Offer for henttilbud
-    minbolig_functions.henttilbud_anbefalet(token, project_id)
+    # # Send Offer for henttilbud
+    # minbolig_functions.henttilbud_anbefalet(token, project_id)
 
     # Create Folder
     create_folder = minbolig_functions.create_folder(token)
     folder_id = create_folder.json()['data']['ID']
     parent_id = create_folder.json()['data']['PARENT_ID']
 
-    # Rename Folder
-    minbolig_functions.rename_folder(token, folder_id)
-
-    # Attach File
-    minbolig_functions.attached_file(token, parent_id)
+    # # Rename Folder
+    # minbolig_functions.rename_folder(token, folder_id)
 
     # Send Messages in email
     minbolig_functions.send_messages(token)
@@ -106,9 +103,31 @@ if __name__ == '__main__':
         # Accept Offer in Minbolig
         minbolig_functions.accept_offer_minbolig(token, project_id, offer_id)
 
-    # Create Offer in Minbolig
 
-    minbolig_functions.create_contract_minbolig(token, project_id)
+    # Create Contract in Minbolig
+    minbolig_contract = minbolig_functions.create_contract_minbolig(token, project_id)
+    # contract_id = minbolig_contract.json()['data']['DOCUMENTS']['CONTRACT_ID']
+    # print(f'Contract ID :{contract_id}')
+
+
+    # Create project Meeting in Minbolig
+    minbolig_functions.create_project_meeting(token, project_id)
+
+    # Get Timeline Id
+    get_timeline_id =minbolig_functions.get_timeline_id(token, project_id)
+    timeline_id = get_timeline_id.json()['data']['ID']
+
+    # Create Timeline Task
+    minbolig_functions.create_timeline_task(token, timeline_id)
+
+    # Submit Timeline Task
+    minbolig_functions.submit_timeline_created(token, timeline_id)
+
+    # Partner approves timeline created by the homewoner
+    partner_functions.partner_approve_timeline(token_partner, timeline_id)
+
+    # Accept Contract Minbolig Side
+    # minbolig_functions.accept_contract_minbolig(token, contract_id)
 
 
 

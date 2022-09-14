@@ -23,7 +23,7 @@ def partner_login():
         print(f'Log in Successful')
         print(f'Username: {email}')
         print(f'Password: {password}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
         return response
 
@@ -39,7 +39,7 @@ def get_invitation_id(token_partner, project_id):
     try:
         headers = {
             'accept': '*/*',
-            'Content-Type': 'multipart/form-data',
+            'Content-Type': 'application/json',
             'Authorization': 'Bearer' + token_partner
         }
 
@@ -50,7 +50,7 @@ def get_invitation_id(token_partner, project_id):
         print(f'--------------------------------------------------')
         print(f'Status Code: {response.status_code}')
         print(f'Project ID : {project_id}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
         return response
 
@@ -66,7 +66,7 @@ def partner_accept_offer(token_partner, invitation_id):
     try:
         headers = {
             'accept': '*/*',
-            'Content-Type': 'multipart/form-data',
+            'Content-Type': 'application/json',
             'Authorization': 'Bearer' + token_partner
         }
 
@@ -76,7 +76,7 @@ def partner_accept_offer(token_partner, invitation_id):
         print(f'PARTNER ACCEPT OFFER')
         print(f'--------------------------------------------------')
         print(f'Status Code: {response.status_code}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
         return response
 
@@ -109,7 +109,33 @@ def partner_create_offer(token_partner, project_id):
         print(f'--------------------------------------------------')
         print(f'Status Code: {response.status_code}')
         print(f'Project Id: {project_id}')
-        print(json.dumps(response.json(), indent=4, sort_keys=True))
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
+
+
+    except requests.exceptions.RequestException as e:
+        print('Error: {}'.format(e))
+        sys.exit(1)
+
+
+# Partner approves timeline created by the homeowner
+def partner_approve_timeline(token_partner, timeline_id):
+    path = "/partner/project/timeline"
+
+    try:
+        headers = {
+            'accept': '*/*',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer' + token_partner
+        }
+
+
+        response = requests.put(f'{config.host + path}/{timeline_id}/approve',
+                                headers=headers, verify=False)
+        print(f'--------------------------------------------------')
+        print(f'PARTNER APPROVES TIMELINE')
+        print(f'--------------------------------------------------')
+        print(f'Status Code: {response.status_code}')
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
 
 
     except requests.exceptions.RequestException as e:

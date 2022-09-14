@@ -83,3 +83,11 @@ with open("test_data\\create_contract.json") as f:
 # Payment stages for contract json file
 with open("test_data\\payment_stages_contract.json") as f:
     payment_stages_test_data = json.load(f)
+
+# Create Project Meeting json file
+with open("test_data\\create_project_meeting.json") as f:
+    project_meeting_test_case = json.load(f)
+
+# Create Timeline Task json file
+with open("test_data\\create_timeline_task.json") as f:
+     create_timeline_task_test_data = json.load(f)
