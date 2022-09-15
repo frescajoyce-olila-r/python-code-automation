@@ -1,0 +1,13 @@
+setup.py
+byggaranti_scrapy/__init__.py
+byggaranti_scrapy/items.py
+byggaranti_scrapy/middlewares.py
+byggaranti_scrapy/pipelines.py
+byggaranti_scrapy/settings.py
+byggaranti_scrapy/spiders/__init__.py
+byggaranti_scrapy/spiders/byggaranti.py
+project.egg-info/PKG-INFO
+project.egg-info/SOURCES.txt
+project.egg-info/dependency_links.txt
+project.egg-info/entry_points.txt
+project.egg-info/top_level.txt
