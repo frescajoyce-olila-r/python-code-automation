@@ -1,0 +1,21 @@
+{
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.18",
+        "phpmailer/phpmailer": "^6.5",
+        "swiftmailer/swiftmailer": "^6.0",
+        "vlucas/phpdotenv": "^5.3",
+        "php":">=7.1",
+        "phpunit/phpunit": "^9.5",
+        "php-webdriver/webdriver": "^1.11",
+        "phpunit/phpunit-selenium": "*"
+    },
+    "autoload": {
+        "psr-4": {
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
+    }
+}

@@ -1,0 +1,5 @@
+/excel_reports/*
+/lighthouse_reports/*
+/vendor/*
+/.vscode/*
+.env
