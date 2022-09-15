@@ -1,0 +1,86 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyBroadExceptionInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyClassHasNoInitInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="11">
+            <item index="0" class="java.lang.String" itemvalue="requests" />
+            <item index="1" class="java.lang.String" itemvalue="pandas" />
+            <item index="2" class="java.lang.String" itemvalue="funcy" />
+            <item index="3" class="java.lang.String" itemvalue="selenium" />
+            <item index="4" class="java.lang.String" itemvalue="pytest" />
+            <item index="5" class="java.lang.String" itemvalue="PyYAML" />
+            <item index="6" class="java.lang.String" itemvalue="uplink" />
+            <item index="7" class="java.lang.String" itemvalue="pytest-html" />
+            <item index="8" class="java.lang.String" itemvalue="urllib3" />
+            <item index="9" class="java.lang.String" itemvalue="openpyxl" />
+            <item index="10" class="java.lang.String" itemvalue="itemadapter" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E111" />
+          <option value="E302" />
+          <option value="E117" />
+          <option value="W292" />
+          <option value="E501" />
+          <option value="W605" />
+          <option value="E128" />
+          <option value="E114" />
+          <option value="E261" />
+          <option value="E265" />
+          <option value="E221" />
+          <option value="E251" />
+          <option value="E231" />
+          <option value="E203" />
+          <option value="E225" />
+          <option value="E222" />
+          <option value="E301" />
+          <option value="E722" />
+          <option value="E101" />
+          <option value="E127" />
+          <option value="E303" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N802" />
+          <option value="N806" />
+          <option value="N801" />
+          <option value="N813" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyStatementEffectInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="main.WebDriver" />
+          <option value="main.*" />
+          <option value="page_helpers" />
+          <option value="selenium.WebElement" />
+          <option value="requests" />
+          <option value="suites.dev_suites.webp_firma_pages" />
+          <option value="config.dev" />
+          <option value="utils.url_manager.TEST_ENV" />
+          <option value="suites.conftest.selenium" />
+          <option value="feature.login_page.login" />
+          <option value="suites.dev_suites.feature" />
+          <option value="faglighed_scrapy.spiders.danskindustri.API_URL" />
+          <option value="faglighed_scrapy.spiders.danskindustri.self" />
+          <option value="faglighed_scrapy.spiders.danskindustri.data" />
+          <option value="enrigtigmaler_dk_scrapy.spiders.enrigtigmaler.pretty_json" />
+          <option value="dhv_scrapy.spiders.dhv.faglighed" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
